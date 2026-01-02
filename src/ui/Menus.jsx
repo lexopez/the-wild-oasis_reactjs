@@ -1,6 +1,8 @@
+import { useState } from "react";
+import { createContext } from "react";
 import styled from "styled-components";
 
-const StyledMenu = styled.div`
+const Menu = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -60,3 +62,22 @@ const StyledButton = styled.button`
     transition: all 0.3s;
   }
 `;
+
+const MenusContext = createContext();
+
+function Menus({ children }) {
+  const [openId, setOpenId] = useState("");
+
+  const close = () => setOpenId("");
+  const open = setOpenId;
+
+  return (
+    <MenusContext.Provider value={(openId, close, open)}>
+      {children}
+    </MenusContext.Provider>
+  );
+}
+
+Menus.Menu = Menu;
+
+export default Menus;
