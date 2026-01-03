@@ -14,6 +14,8 @@ function CabinTable() {
   if (isLoading) return <Spinner />;
   if (!cabins.length) return <Empty resourceName="cabins" />;
 
+  //client-side filtering and sorting
+
   //filter
   const filterValue = searchParams.get("discount") || "all";
 
@@ -23,6 +25,15 @@ function CabinTable() {
     filteredCabins = cabins.filter((cabin) => cabin.discount === 0);
   if (filterValue === "with-discount")
     filteredCabins = cabins.filter((cabin) => cabin.discount > 0);
+
+  //sorting
+  const sortBy = searchParams.get("sortBy") || "id-desc";
+  const [field, direction] = sortBy.split("-");
+  const modifier = direction === "asc" ? 1 : -1;
+  const sortedCabins = filteredCabins.sort(
+    (a, b) => (a[field] - b[field]) * modifier
+  );
+  const mapCabins = sortedCabins.map((cabin) => cabin); // to trigger the re-render of the list
 
   return (
     <Menus>
@@ -37,7 +48,7 @@ function CabinTable() {
         </Table.Header>
 
         <Table.Body
-          data={filteredCabins}
+          data={mapCabins}
           render={(cabin) => <CabinRow cabin={cabin} key={cabin.id} />}
         />
       </Table>
