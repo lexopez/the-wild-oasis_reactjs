@@ -29,7 +29,9 @@ function CreateCabinForm({ cabinToEdit = {}, onCloseModal }) {
     if (isEditSession) {
       editCabin(
         {
-          newCabinData: { ...data, image, id: editId },
+          ...data,
+          image,
+          id: editId,
         },
         {
           onSuccess: (data) => {
