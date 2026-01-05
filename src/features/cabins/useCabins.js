@@ -10,6 +10,7 @@ export function useCabins() {
     queryKey: ["cabins"],
     queryFn: getCabins,
   });
+  console.log(cabins);
 
   return { isLoading, error, cabins };
 }
