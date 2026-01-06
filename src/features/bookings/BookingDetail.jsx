@@ -17,6 +17,7 @@ import { useCheckout } from "../check-in-out/useCheckout";
 import ConfirmDelete from "../../ui/ConfirmDelete";
 import { useDeleteBooking } from "./useDeleteBooking";
 import Modal from "../../ui/Modal";
+import Empty from "../../ui/Empty";
 
 const HeadingGroup = styled.div`
   display: flex;
