@@ -58,6 +58,8 @@ The project focuses heavily on dashboard architecture, data fetching, reusable U
 
 🔗 **Live Demo:** [https://wild-oasis-reactjs-app.netlify.app](https://wild-oasis-reactjs-app.netlify.app/dashboard)
 
+<img width="1898" height="929" alt="image" src="https://github.com/user-attachments/assets/edbde7a6-ce9c-4ce1-90ef-b233d8456a82" />
+
 ---
 
 ## 🚀 Getting Started
